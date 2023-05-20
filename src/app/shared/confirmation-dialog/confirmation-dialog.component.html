@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Suprimer mission</h1>
+<div mat-dialog-content>
+  Voulez vous supprimer la mission <b>{{ title }}</b
+  >?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="dialogRef.close(false)">
+    Non
+  </button>
+  <button mat-button mat-dialog-close (click)="dialogRef.close(true)">
+    Oui
+  </button>
+</div>

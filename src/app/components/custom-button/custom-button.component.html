@@ -1,0 +1,6 @@
+<button [style]="{ 'background-color': bgColor, color: color }" class="btn">
+  <span *ngIf="iconName"
+    ><mat-icon>{{ iconName }}</mat-icon></span
+  >
+  {{ title }}
+</button>

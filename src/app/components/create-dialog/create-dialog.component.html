@@ -1,0 +1,59 @@
+<form [formGroup]="formGroup" class="form-content">
+  <mat-form-field appearance="outline">
+    <mat-label>Nom mission</mat-label>
+    <input matInput formControlName="missionName" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Début</mat-label>
+    <input
+      matInput
+      [matDatepicker]="pickerStart"
+      formControlName="startDate"
+      [max]="formGroup.get('endDate')?.value"
+    />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="pickerStart"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #pickerStart></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fin</mat-label>
+    <input
+      matInput
+      [matDatepicker]="pickerEnd"
+      formControlName="endDate"
+      [min]="formGroup.get('startDate')?.value"
+    />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+    <mat-datepicker #pickerEnd></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contributeurs</mat-label>
+    <mat-select formControlName="contributors" multiple>
+      <mat-option *ngFor="let personne of personnes" [value]="personne.id">{{
+        personne.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Couleur</mat-label>
+    <input matInput formControlName="color" type="color" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="missionDesc" rows="5"></textarea>
+  </mat-form-field>
+  <div class="btn-action">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="dialogRef.close(formGroup.value)"
+    >
+      {{ label }} mission
+    </button>
+    <button mat-raised-button (click)="dialogRef.close()">Annuler</button>
+  </div>
+</form>

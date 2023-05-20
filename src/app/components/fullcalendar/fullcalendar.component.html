@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="btn-content">
+    <app-custom-button
+      (click)="addEvent()"
+      title="Ajouter mission"
+      bgColor="#2966A2"
+      iconName="add"
+    ></app-custom-button>
+    <app-custom-button
+      title="Sauvegarder"
+      iconName="save"
+      (click)="saveChanges()"
+    ></app-custom-button>
+  </div>
+  <div class="calendar-content">
+    <full-calendar [options]="calendarOptions">
+      <ng-template #eventContent let-arg>
+        <div
+          class="event-container"
+          [matTooltip]="arg.event.extendedProps.description"
+          matTooltipPosition="above"
+          matTooltipClass="tooltip"
+        >
+          <h2>{{ arg.event.title }}</h2>
+          <b>Contributeurs :</b><br />
+          <div
+            class="contributor-container"
+            *ngFor="let contributor of arg.event.extendedProps.contributors"
+          >
+            <img
+              [src]="getAvatar(contributor)"
+              alt="avatar"
+              width="44"
+              height="44"
+            />
+            {{ getName(contributor) }}
+          </div>
+          <div class="event-action-btn">
+            <button mat-mini-fab color="warn" (click)="deleteEvent(arg.event)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            <button mat-mini-fab (click)="updateEvent(arg.event)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+    </full-calendar>
+  </div>
+</div>

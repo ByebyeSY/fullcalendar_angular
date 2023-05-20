@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Planning poker",
+    "start": "2023-05-20",
+    "end": "2023-05-23",
+    "color": "#808080",
+    "extendedProps": {},
+    "description": "Éstimation des tâches dans un sprint",
+    "contributors": [1, 2]
+  }
+]
