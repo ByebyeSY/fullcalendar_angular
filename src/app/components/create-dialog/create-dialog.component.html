@@ -2,6 +2,9 @@
   <mat-form-field appearance="outline">
     <mat-label>Nom mission</mat-label>
     <input matInput formControlName="missionName" />
+    <mat-error>{{
+      formGroup.get("missionName")?.getError("required") && "Nom mission requis"
+    }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Début</mat-label>
@@ -17,6 +20,9 @@
       [for]="pickerStart"
     ></mat-datepicker-toggle>
     <mat-datepicker #pickerStart></mat-datepicker>
+    <mat-error>{{
+      formGroup.get("startDate")?.getError("required") && "Date début requis"
+    }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Fin</mat-label>
@@ -29,6 +35,9 @@
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
     <mat-datepicker #pickerEnd></mat-datepicker>
+    <mat-error>{{
+      formGroup.get("endDate")?.getError("required") && "Date fin requis"
+    }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Contributeurs</mat-label>
@@ -37,20 +46,28 @@
         personne.name
       }}</mat-option>
     </mat-select>
+    <mat-error>{{
+      formGroup.get("contributors")?.getError("required") &&
+        "Contributeurs requis"
+    }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Couleur</mat-label>
     <input matInput formControlName="color" type="color" />
   </mat-form-field>
   <mat-form-field appearance="outline">
-    <mat-label>Description</mat-label>
+    <mat-label>Déscription</mat-label>
     <textarea matInput formControlName="missionDesc" rows="5"></textarea>
+    <mat-error>{{
+      formGroup.get("missionName")?.getError("required") && "Déscription requis"
+    }}</mat-error>
   </mat-form-field>
   <div class="btn-action">
     <button
       mat-raised-button
       color="primary"
       (click)="dialogRef.close(formGroup.value)"
+      [disabled]="formGroup.invalid"
     >
       {{ label }} mission
     </button>

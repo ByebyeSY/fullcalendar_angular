@@ -1,12 +1,16 @@
 import { Component } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
+
 import { CalendarOptions } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
-import { IPersonne } from "src/app/interfaces/personne.interface";
+
 import { CreateDialogComponent } from "../create-dialog/create-dialog.component";
+import { ConfirmationDialogComponent } from "src/app/shared/confirmation-dialog/confirmation-dialog.component";
+
+import { IPersonne } from "src/app/interfaces/personne.interface";
+
 import missions from "@Mocks/missions.json";
 import personnes from "@Mocks/personnes.json";
-import { ConfirmationDialogComponent } from "src/app/shared/confirmation-dialog/confirmation-dialog.component";
 
 @Component({
   selector: "app-fullcalendar",

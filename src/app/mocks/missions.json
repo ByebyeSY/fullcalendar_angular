@@ -7,5 +7,23 @@
     "extendedProps": {},
     "description": "Éstimation des tâches dans un sprint",
     "contributors": [1, 2]
+  },
+  {
+    "title": "Analyse et conception",
+    "start": "2023-05-02",
+    "end": "2023-05-06",
+    "color": "#2926ba",
+    "extendedProps": {},
+    "description": "Étude pour la création du backlog",
+    "contributors": [1, 2, 3]
+  },
+  {
+    "title": "Sprint 0",
+    "start": "2023-05-28",
+    "end": "2023-06-09",
+    "color": "#4eba26",
+    "extendedProps": {},
+    "description": "Premier sprint",
+    "contributors": [1, 2, 3]
   }
 ]

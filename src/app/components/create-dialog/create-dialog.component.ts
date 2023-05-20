@@ -26,8 +26,6 @@ export class CreateDialogComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.mission?.backgroundColor);
-
     this.formGroup = this.fb.group({
       missionName: new FormControl(
         this.mission ? this.mission.title : "",
@@ -41,10 +39,7 @@ export class CreateDialogComponent implements OnInit {
         this.mission ? this.mission?.end : "",
         Validators.required,
       ),
-      color: new FormControl(
-        this.mission ? this.mission?.backgroundColor : "",
-        Validators.required,
-      ),
+      color: new FormControl(this.mission ? this.mission?.backgroundColor : ""),
       contributors: new FormControl(
         this.mission ? this.mission?.extendedProps.contributors : "",
         Validators.required,
